@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "932295319833",
+    "firebase_url": "https://meusgastos-a4ca1.firebaseio.com",
+    "project_id": "meusgastos-a4ca1",
+    "storage_bucket": "meusgastos-a4ca1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932295319833:android:de8b96a1313043bc42a588",
+        "android_client_info": {
+          "package_name": "com.joffr.meusgastos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932295319833-30puang7deh6epfmei2qgqmv7rkdn0b0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joffr.meusgastos",
+            "certificate_hash": "3becfe8c296e88e904719103e07accc0702cbcae"
+          }
+        },
+        {
+          "client_id": "932295319833-6tm69un11sscsc1prl4i170u403n3n0l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy7em2tyWAi8RZCiJAbehtdsWpoC4ypLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932295319833-6tm69un11sscsc1prl4i170u403n3n0l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
