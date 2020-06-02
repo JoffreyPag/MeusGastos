@@ -1,70 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.cesar.materialcomponents.Banner
-            android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:elevation="1dp"
-            android:visibility="gone"
-            app:bannerBackgroundColor="@color/primaryDarkColor"
-            app:contentText="Um Problema aconteceu"
-            app:leftButtonText="Tentar novamente"
-            app:rightButtonText="Cancelar" />
-
-        <FrameLayout
-            android:id="@+id/frame_for_fragments"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true" />
-
-    </RelativeLayout>
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:fabAlignmentMode="center" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints="add compra"
-        android:contentDescription="Add compra"
-        android:visibility="invisible"
-        app:layout_anchor="@id/bar"
-        app:srcCompat="@drawable/ic_attach_money" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/bottom_sheet_cartoes"
-        style="@style/Widget.Design.BottomSheet.Modal"
+    <FrameLayout
+        android:id="@+id/frame_for_fragments"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
-        app:behavior_peekHeight="0dp"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="8dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
 
-        <include layout="@layout/fragment_cartoes" />
-
-    </androidx.cardview.widget.CardView>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

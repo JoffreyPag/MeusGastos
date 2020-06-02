@@ -13,12 +13,12 @@
         app:liftOnScroll="true">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar_sheet"
+            android:id="@+id/topAppBarCartao"
             style="@style/Widget.MaterialComponents.Toolbar.Surface"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_clear_black"
-            app:title="Cartões"/>
+            app:title="Cartões" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
