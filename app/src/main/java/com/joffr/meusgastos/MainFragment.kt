@@ -2,27 +2,23 @@ package com.joffr.meusgastos
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.*
+import com.joffr.meusgastos.adapter.ComprasAdapter
 import com.joffr.meusgastos.model.Compra
-import kotlinx.android.synthetic.main.fragment_criar_compra.view.*
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
-import java.lang.reflect.TypeVariable
 
 class MainFragment : Fragment() {
 
     var database: FirebaseDatabase? = null
     var myRef: DatabaseReference? = null
+    val compras = mutableListOf<Compra>()
 
     var bottomBehaviour: BottomSheetBehavior<View>? = null
 
@@ -50,24 +46,25 @@ class MainFragment : Fragment() {
 //        }
 
         view.fab.setOnClickListener { chamaCriarcompra() }
+        val viewManager = LinearLayoutManager(context)
+        view.recycler_contas.apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = ComprasAdapter(compras, context)
+        }
 
         //===== listener firebase ========
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
                 val post = dataSnapshot.getValue()
-//                val compras: MutableList<Compra> = mutableListOf()
-//                dataSnapshot.children.mapNotNullTo(compras) { it.getValue<Compra>(Compra::class.java) }
-//                Log.i("TAG", compras[0].nome)
-                val compras = mutableListOf<Compra>()
+                compras.clear()
                 for (data in dataSnapshot.children) {
                     compras.add(data.getValue(Compra::class.java)!!)
                 }
-                for (compra in compras) { Log.i("TAG", compra.nome) }
-
+                (view.recycler_contas.adapter as ComprasAdapter).notifyDataSetChanged()
                 view.loandingMainContentBar.visibility = View.GONE
                 view.fab.show()
-
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -79,7 +76,7 @@ class MainFragment : Fragment() {
         myRef!!.addValueEventListener(postListener)
         //====== fim do listener firebase ==============
 
-        view.topAppBar.setOnMenuItemClickListener {
+        view.bottomappbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.card_item -> chamaCartoes(view)
             }

@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         if (supportFragmentManager.backStackEntryCount > 0)
             supportFragmentManager.popBackStackImmediate()
         val fragment = MainFragment()
-        fragmentTransaction.add(R.id.frame_for_fragments, fragment)
+        fragmentTransaction.replace(R.id.frame_for_fragments, fragment)
         fragmentTransaction.commit()
 //        bottomBehaviour = BottomSheetBehavior.from(bottom_sheet_compra)
 //        bottomBehaviour!!.state = BottomSheetBehavior.STATE_HIDDEN
